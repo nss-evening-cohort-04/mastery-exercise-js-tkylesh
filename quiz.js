@@ -40,7 +40,23 @@ submitBtn.addEventListener("click", function(){
 
 	growTree(h,c);
 });
+character.addEventListener("keydown",function(e) {
 
+	if(e.keyCode === 13){//check whether key pressed is enter
+		 h = height.value;
+		 c = character.value;
+
+		growTree(h,c);
+
+	}
+});
+
+
+
+function validate(e) {
+    var text = e.value;
+    //validation of the input...
+}*/
 
 
 
