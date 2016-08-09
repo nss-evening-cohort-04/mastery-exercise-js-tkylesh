@@ -7,10 +7,13 @@ var character = document.getElementById("character");
 
 
 
-function growTree(height, character){
+function growTree(obj){
+//modified the function to take an object as the argument
+	obj.height = document.getElementById("height").value;
+	obj.character = document.getElementById("character").value;
 
-
-	height = parseInt(height);
+	var height = parseInt(obj.height);
+	var character = obj.character;
 	var charCount = 1;
 
 	//initial loop that counts height of tree
@@ -24,7 +27,7 @@ function growTree(height, character){
 		}
 		//third nested for loop adds characters to tree
 		for(var k = 0; k<charCount; k++){
-			arr[index] +=character;
+			arr[index] += character;
 		}
 		console.log(arr[index]);//displays array in console
 		index++;//tells array to start the next index so that the indexes will display on appropriate lines and form a tree shape
@@ -35,28 +38,27 @@ function growTree(height, character){
 
 //event listener for grow tree button on form
 submitBtn.addEventListener("click", function(){
-	var h= height.value;
-	var c= character.value;
+	//eliminated on character variables
+	var high= height.value;
+	var symbol= character.value;
+	var specifications={high,symbol};
 
-	growTree(h,c);
+	growTree(specifications);
 });
 character.addEventListener("keydown",function(e) {
 
 	if(e.keyCode === 13){//check whether key pressed is enter
-		 h = height.value;
-		 c = character.value;
-
-		growTree(h,c);
+		 high = height.value;
+		 symbol = character.value;
+		 var specis={high,symbol};
+		growTree(specis);
 
 	}
 });
 
 
 
-function validate(e) {
-    var text = e.value;
-    //validation of the input...
-}*/
+
 
 
 
