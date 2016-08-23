@@ -11,15 +11,12 @@ function growTree(obj){
 //modified the function to take an object as the argument
 	obj.height = document.getElementById("height").value;
 	obj.character = document.getElementById("character").value;
-
 	var height = parseInt(obj.height);
 	var character = obj.character;
 	var charCount = 1;
-
 	//initial loop that counts height of tree
 	for (var i = height; i>0; i--){
 		arr[index]="";
-
 		//secondary nested loop that pushes spaces into single array index
 		for(var j=i; j>0; j--){
 			//setting(j=i) updates amount of spaces added to index of array each loop through 
@@ -39,20 +36,21 @@ function growTree(obj){
 //event listener for grow tree button on form
 submitBtn.addEventListener("click", function(){
 	//eliminated on character variables
-	var high= height.value;
-	var symbol= character.value;
-	var specifications={high,symbol};
-
-	growTree(specifications);
+	if (height.value !== "" && character.value !== ""){
+		var high= height.value;
+		var symbol= character.value;
+		var specifications={high,symbol};
+		growTree(specifications);
+	}else{
+		alert("Height and Character must each have a value!");
+	}
 });
 character.addEventListener("keydown",function(e) {
-
 	if(e.keyCode === 13){//check whether key pressed is enter
 		 high = height.value;
 		 symbol = character.value;
 		 var specis={high,symbol};
 		growTree(specis);
-
 	}
 });
 
